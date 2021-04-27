@@ -32,5 +32,5 @@ document.addEventListener('scroll', () => {
 
 setInterval(() => {
   delay += (scrollPosition - delay) * 0.1
-  step(Math.floor(440 * delay / 16615))
+  step(Math.floor(440 * delay / document.body.clientHeight))
 }, 33.3)
