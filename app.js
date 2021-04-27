@@ -13,7 +13,6 @@ frames.forEach((frame, iter) => {
   const child = document.createElement('img')
   child.src = frame
   child.classList = `frame frame-${iter}`
-  child.dataset.frame = iter
   app.appendChild(child)
 })
 
@@ -22,9 +21,9 @@ frames.forEach((frame, iter) => {
 let scrollPosition = 0
 let delay = 0
 
-function step(frameNumber) {
-  $('.frame').css('opacity', 0)
-  $(`.frame-${frameNumber}`).css('opacity', 1)
+const step = (frameNumber) => {
+  document.querySelectorAll('.frame').forEach(frame => frame.style.opacity = 0)
+  document.querySelector(`.frame-${frameNumber}`).style.opacity = 1
 }
 
 document.addEventListener('scroll', () => {
